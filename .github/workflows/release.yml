@@ -26,6 +26,8 @@ jobs:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
 
+      - run: echo 'no-tty' >> ~/.gnupg/gpg.conf
+
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v2
         with:
